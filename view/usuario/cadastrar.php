@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <?php
-    session_start();
     include_once "../../php/utils/autoload.php";
     $id = null;
     if(isset($_GET['id'])) {

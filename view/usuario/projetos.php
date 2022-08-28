@@ -19,6 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/style.css">
     <title>projetos</title>
 </head>
 <body>
@@ -49,10 +50,9 @@
                     <tr class="table-dark">
                         <th scope="col">#ID</th>
                         <th scope="col">Nome do projeto</th>
-                        <th scope="col">Prazo</th>
-                        <th scope="col">Descição</th>
-                        <th scope="col">Documento</th>
-                        <th scope="col">Programador</th>
+                        <th scope="col">Detalhes</th>
+                        <th scope="col">Alterar</th>
+                        <th scope="col">Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,10 +63,9 @@
                     <tr>
                         <th scope="row"><?php echo $linha['id'];?></th>
                         <th scope="row"><?php echo $linha['nome'];?></th>
-                        <th scope="row"><?php $date = strtotime($linha['prazo']);$dia = date('d/m/Y',$date);echo $dia;?></th>
-                        <th scope="row"><?php echo $linha['descricao'];?></th>
-                        <th scope="row"><?php echo $linha['documento'];?></th>
-                        <th scope="row"><?php echo $linha['idusu'];?></th>
+                        <td scope="row"><a href="verProjeto.php?id=<?php echo $linha['id'];?>"><img src="../../img/info.svg" alt=""></a></td>
+                        <td scope="row"><a href="cadProjeto.php?id=<?php echo $linha['id'];?>"><img src="../../img/edit.svg" alt=""></a></td>
+                        <td scope="row"><a onclick="return confirm('Deseja mesmo excluir?')" href="cadProjeto.php?id=<?php echo $linha['id'];?>&acao=excluir"><img src="../../img/trash-2.svg" alt=""></a></td>
                     </tr>
                 <?php } ?> 
                 </tbody>

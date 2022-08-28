@@ -141,5 +141,11 @@
             $sql .= ";";
             return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public static function consultarData($id){
+            $sql = "SELECT * FROM projeto WHERE id = :id";
+            $params = array(':id'=>$id);
+            return parent::buscar($sql, $params);
+        }
     }
 ?>
