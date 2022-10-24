@@ -8,6 +8,7 @@
         $lista = $req->select('*', "id = $id");
     }
 
+    error_reporting(0);
     $nome = isset($_POST["nome"]) ? $_POST["nome"] : "";
     $prazo = isset($_POST["prazo"]) ? $_POST["prazo"] : 0;
     $descricao = isset($_POST["descricao"]) ? $_POST["descricao"] : "";
@@ -27,7 +28,7 @@
 
     if($acao == "insert") {
         try{
-            $req = new Requisito("", $nome, $prazo, $descricao, $documento, $idpro, $status);
+            $req = new Requisito("", $nome, $prazo, $descricao, $idpro, $status);
             $req->inserir();
             if(isset($_POST["idusu"])){   
                 foreach ($_POST['idusu'] as $idusu){
@@ -41,7 +42,7 @@
                 if(in_array($extensao, $arquivos_permitidos)){
                     $arqreq = new Arquivo_req($nomes[$i], '');
                     $arqreq->inserir();
-                    $mover = move_uploaded_file($_FILES['arquivos']['tmp_name'][$i], '../requisitos/' . $nomes[$i]);
+                    move_uploaded_file($_FILES['arquivos']['tmp_name'][$i], '../arquivoRequisito/' . $nomes[$i]);
                 }
             }
             header("location:requisitos.php?idpro=$idpro");
@@ -50,7 +51,7 @@
         }
     } else if($acao == "editar") {
         try{
-            $req = new Requisito($id, $nome, $prazo, $descricao, $documento, $idpro, "");
+            $req = new Requisito($id, $nome, $prazo, $descricao, $idpro, "");
             $req->editar();
             header("location:requisitos.php?idpro=$idpro");
         } catch(Exception $e) {
@@ -109,7 +110,7 @@
             </div><br>
             <div class="col-auto">
                 <div class="mb-3">
-                    <input type="file" multiple id="arquivos[]" name="arquivos[]" required value="<?php if (isset($id)) echo $arquivo;?>" class="form-control border border-dark rounded">
+                    <input type="file" multiple id="arquivos[]" name="arquivos[]" <?php if(!isset($id)) { echo "required";} else { echo "";}?> value="<?php if (isset($id)) echo $arquivo;?>" class="form-control border border-dark rounded">
                 </div>
             </div><br>
             <div class="col-auto">

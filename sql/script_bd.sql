@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `tcc`.`requisito` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `tcc`.`arquivo_pro` (
-  `documento` VARCHAR(45) NULL,
+  `arquivos` VARCHAR(550) NULL,
   `idpro` INT NOT NULL,
   INDEX `fk_arquivo_pro_projeto_idx` (`idpro` ASC),
   CONSTRAINT `fk_arquivo_pro_projeto`
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `tcc`.`arquivo_pro` (
 ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `tcc`.`arquivo_req` (
-  `documento` VARCHAR(45) NULL,
+  `arquivos` VARCHAR(550) NULL,
   `idreq` INT NOT NULL,
   INDEX `fk_arquivo_pro_requisito_idx` (`idreq` ASC),
   CONSTRAINT `fk_arquivo_pro_requisito`

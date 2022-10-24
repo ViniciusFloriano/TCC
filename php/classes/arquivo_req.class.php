@@ -2,11 +2,11 @@
         include_once "../../php/utils/autoload.php";
         class Arquivo_req extends Database{
         private $arquivos;
-        private $idpro;
+        private $idreq;
 
-        public function __construct($arquivos, $idpro) {
+        public function __construct($arquivos, $idreq) {
             $this->setarquivos($arquivos);
-            $this->setidpro($idpro);
+            $this->setidreq($idreq);
         }
 
         public function getarquivos() {
@@ -17,36 +17,36 @@
             $this->arquivos = $arquivos;
         }
         
-        public function getidpro() {
-            return $this->idpro;
+        public function getidreq() {
+            return $this->idreq;
         }
 
-        public function setidpro($idpro) {
-            $this->idpro = $idpro;
+        public function setidreq($idreq) {
+            $this->idreq = $idreq;
         }
 
         public function inserir(){
-            $sql = 'INSERT INTO tcc.arquivo_pro (arquivos, idpro) 
+            $sql = 'INSERT INTO tcc.arquivo_req (arquivos, idreq) 
             VALUES (:arquivos, LAST_INSERT_ID())';
             $parametros = array(":arquivos"=>$this->getarquivos());
             return parent::executaComando($sql,$parametros);
         }
 
         public function editar(){
-            $sql = 'UPDATE tcc.arquivo_pro 
+            $sql = 'UPDATE tcc.arquivo_req 
             SET arquivos = :arquivos
-            WHERE idpro = :idpro';
+            WHERE idreq = :idreq';
             $parametros = array(":arquivos"=>$this->getarquivos(),
-                                ":idpro"=>$this->getidpro());
+                                ":idreq"=>$this->getidreq());
             return parent::executaComando($sql,$parametros);
         }
 
         public static function listar($buscar = 0, $procurar = ""){
-            $sql = "SELECT * FROM arquivo_pro";
+            $sql = "SELECT * FROM arquivo_req";
             if ($buscar > 0)
                 switch($buscar){
                     case(1): $sql .= " WHERE arquivos like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(2): $sql .= " WHERE idpro like :procurar"; $procurar = "%".$procurar."%"; break;
+                    case(2): $sql .= " WHERE idreq like :procurar"; $procurar = "%".$procurar."%"; break;
                 }
             if ($buscar > 0)
                 $parametros = array(':procurar'=>$procurar);
@@ -57,7 +57,7 @@
 
         public static function select($rows="*", $where = null, $search = null, $order = null, $group = null) {
             $pdo = Database::iniciaConexao();
-            $sql= "SELECT $rows FROM arquivo_pro";
+            $sql= "SELECT $rows FROM arquivo_req";
             if($where != null) {
                 $sql .= " WHERE $where";
                 if($search != null) {

@@ -8,6 +8,7 @@
         $lista = $pro->select('*', "id = $id");
     }
 
+    error_reporting(0);
     $nome = isset($_POST["nome"]) ? $_POST["nome"] : "";
     $prazoinicio = isset($_POST["prazoinicio"]) ? $_POST["prazoinicio"] : 0;
     $prazofim = isset($_POST["prazofim"]) ? $_POST["prazofim"] : 0;
@@ -43,7 +44,7 @@
                 if(in_array($extensao, $arquivos_permitidos)){
                     $arqpro = new Arquivo_pro($nomes[$i], '');
                     $arqpro->inserir();
-                    $mover = move_uploaded_file($_FILES['arquivos']['tmp_name'][$i], '../requisitos/' . $nomes[$i]);
+                    move_uploaded_file($_FILES['arquivos']['tmp_name'][$i], '../arquivoProjeto/' . $nomes[$i]);
                 }
             }
             header("location:projetos.php?analista=$analista");

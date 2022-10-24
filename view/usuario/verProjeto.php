@@ -4,7 +4,12 @@
     $id = $_GET['id'];
     $analista = $_GET['analista'];
     $dados = Projeto::consultarData($id)[0];
+    $arquivo = Arquivo_pro::consultarData($id);
     $table = "projeto";
+
+    $zip = new ZipArchive();
+    $zip->addFile($arquivo);
+    $zip->close();
 ?>
 <html>
 <head>
@@ -48,7 +53,7 @@
             <div class="col-auto">
                 <div class="input-group">
                     <label class="input-group-text border border-dark rounded-start" for="documento">Baixar arquivo do projeto</label>
-                    <a href='../../<?php echo $dados['documento'];?>' download style="width: 50.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
+                    <a href='../arquivoProjeto/<?php echo $zip;?>' download style="width: 50.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
                 </div>
             </div><br>
             <div class="col-auto">

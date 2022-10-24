@@ -5,16 +5,14 @@
         private $nome;
         private $prazo;
         private $descricao;
-        private $documento;
         private $idpro;
         private $status;
 
-        public function __construct($id, $nome, $prazo, $descricao, $documento, $idpro, $status) {
+        public function __construct($id, $nome, $prazo, $descricao, $idpro, $status) {
             $this->setid($id);
             $this->setnome($nome);
             $this->setprazo($prazo);
             $this->setdescricao($descricao);
-            $this->setdocumento($documento);
             $this->setidpro($idpro);
             $this->setstatus($status);
         }
@@ -50,14 +48,6 @@
         public function setdescricao($descricao) {
             $this->descricao = $descricao;
         }
-
-        public function getdocumento() {
-            return $this->documento;
-        }
-
-        public function setdocumento($documento) {
-            $this->documento = $documento;
-        }
         
         public function getidpro() {
             return $this->idpro;
@@ -76,12 +66,11 @@
         }
 
         public function inserir(){
-            $sql = 'INSERT INTO tcc.requisito (nome, prazo, descricao, documento, idpro, status) 
-            VALUES (:nome, :prazo, :descricao, :documento, :idpro, :status)';
+            $sql = 'INSERT INTO tcc.requisito (nome, prazo, descricao, idpro, status) 
+            VALUES (:nome, :prazo, :descricao, :idpro, :status)';
             $parametros = array(":nome"=>$this->getnome(),
                                 ":prazo"=>$this->getprazo(),
                                 ":descricao"=>$this->getdescricao(),
-                                ":documento"=>$this->getdocumento(),
                                 ":idpro"=>$this->getidpro(),
                                 ":status"=>$this->getstatus());
             return parent::executaComando($sql,$parametros);
@@ -95,12 +84,11 @@
 
         public function editar(){
             $sql = 'UPDATE tcc.requisito 
-            SET nome = :nome, prazo = :prazo, descricao = :descricao, documento = :documento, idpro = :idpro
+            SET nome = :nome, prazo = :prazo, descricao = :descricao, idpro = :idpro
             WHERE id = :id';
             $parametros = array(":nome"=>$this->getnome(),
                                 ":prazo"=>$this->getprazo(),
                                 ":descricao"=>$this->getdescricao(),
-                                ":documento"=>$this->getdocumento(),
                                 ":idpro"=>$this->getidpro(),
                                 ":id"=>$this->getid());
             return parent::executaComando($sql,$parametros);
@@ -114,9 +102,8 @@
                     case(2): $sql .= " WHERE nome like :procurar"; $procurar = "%".$procurar."%"; break;
                     case(3): $sql .= " WHERE prazo like :procurar"; $procurar = "%".$procurar."%"; break;
                     case(4): $sql .= " WHERE descricao like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(5): $sql .= " WHERE documento like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(6): $sql .= " WHERE idpro like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(7): $sql .= " WHERE status like :procurar"; $procurar = "%".$procurar."%"; break;
+                    case(5): $sql .= " WHERE idpro like :procurar"; $procurar = "%".$procurar."%"; break;
+                    case(6): $sql .= " WHERE status like :procurar"; $procurar = "%".$procurar."%"; break;
                 }
             if ($buscar > 0)
                 $parametros = array(':procurar'=>$procurar);
@@ -162,9 +149,8 @@
                     case(2): $sql .= " WHERE nome like :procurar"; $procurar = "%".$procurar."%"; break;
                     case(3): $sql .= " WHERE prazo like :procurar"; $procurar = "%".$procurar."%"; break;
                     case(4): $sql .= " WHERE descricao like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(5): $sql .= " WHERE documento like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(6): $sql .= " WHERE idpro like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(7): $sql .= " WHERE status like :procurar"; $procurar = "%".$procurar."%"; break;
+                    case(5): $sql .= " WHERE idpro like :procurar"; $procurar = "%".$procurar."%"; break;
+                    case(6): $sql .= " WHERE status like :procurar"; $procurar = "%".$procurar."%"; break;
                 }
             if ($buscar > 0){
                 $parametros = array(':procurar'=>$procurar);

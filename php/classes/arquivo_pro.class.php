@@ -77,5 +77,11 @@
             $sql .= ";";
             return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public static function consultarData($id){
+            $sql = "SELECT * FROM arquivo_pro WHERE idpro = :idpro";
+            $params = array(':idpro'=>$id);
+            return parent::buscar($sql, $params);
+        }
     }
 ?>

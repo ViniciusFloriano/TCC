@@ -39,5 +39,13 @@
       $stmt->execute();
       return $stmt->fetchALL();
     }
+
+    public static function arquivo($sql){
+      $conexao = self::iniciaConexao();
+      $stmt = $conexao->prepare($sql);
+      $stmt = self::vinculaParametros($stmt);
+      $stmt->execute();
+      return $stmt->fetchALL();
+    }
   }
 ?>
