@@ -77,5 +77,11 @@
             $sql .= ";";
             return $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public static function consultarData($id){
+            $sql = "SELECT arquivos FROM arquivo_req WHERE idreq = :idreq";
+            $params = array(':idreq'=>$id);
+            return parent::buscar($sql, $params);
+        }
     }
 ?>

@@ -34,9 +34,11 @@
         }
 
         public function editar(){
-            $sql = 'UPDATE tcc.usuario_projeto 
-            SET idusu = :idusu
-            WHERE idpro = :idpro';
+            $sql = 'DELETE FROM tcc.usuario_projeto WHERE idpro = :idpro;';
+            $parametros = array(":idpro"=>$this->getidpro());
+            parent::executaComando($sql,$parametros);
+            $sql = 'INSERT INTO tcc.usuario_projeto (idusu, idpro) 
+            VALUES (:idusu, :idpro);';
             $parametros = array(":idusu"=>$this->getidusu(),
                                 ":idpro"=>$this->getidpro());
             return parent::executaComando($sql,$parametros);

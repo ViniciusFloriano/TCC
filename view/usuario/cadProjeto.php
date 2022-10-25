@@ -17,7 +17,7 @@
     $analista = isset($_GET["analista"]) ? $_GET["analista"] : 0;
     $status = "backlog";
     $table = "projeto";
-    $arquivos_permitidos = ['jpg', 'png', 'jpeg', 'docx', 'pdf', ''];
+    $arquivos_permitidos = ['jpg', 'png', 'jpeg', 'docx', 'pdf', 'txt', ''];
     $nomes = $_FILES['arquivos']['name'];
 
     if(isset($_POST['acao'])) {
@@ -34,7 +34,7 @@
             $pro->inserir();
             if(isset($_POST["idusu"])){   
                 foreach ($_POST['idusu'] as $idusu){
-                    $usupro = new Usuario_Projeto($idusu, "");
+                    $usupro = new Usuario_Projeto($idusu,"");
                     $usupro->inserir();
                 }
             }
@@ -42,7 +42,7 @@
                 $extensao = explode('.', $nomes[$i]);
                 $extensao = end($extensao);
                 if(in_array($extensao, $arquivos_permitidos)){
-                    $arqpro = new Arquivo_pro($nomes[$i], '');
+                    $arqpro = new Arquivo_pro($nomes[$i], "");
                     $arqpro->inserir();
                     move_uploaded_file($_FILES['arquivos']['tmp_name'][$i], '../arquivoProjeto/' . $nomes[$i]);
                 }
@@ -53,23 +53,37 @@
         }
     } else if($acao == "editar") {
         try{
-            $pro = new Projeto($id, $nome, $prazoinicio, $prazofim, $descricao, $documento, $edital, $analista, "");
+            $pro = new Projeto($id, $nome, $prazoinicio, $prazofim, $descricao, $edital, $analista, "");
             $pro->editar();
+            if(isset($_POST["idusu"])){   
+                foreach ($_POST['idusu'] as $idusu){
+                    $usupro = new Usuario_Projeto($idusu, $id);
+                    $usupro->editar();
+                }
+            }
+            for($i = -2; $i < count($nomes); $i++){
+                $extensao = explode('.', $nomes[$i]);
+                $extensao = end($extensao);
+                if(in_array($extensao, $arquivos_permitidos)){
+                    $arqpro = new Arquivo_pro($nomes[$i], $id);
+                    $arqpro->excluir();
+                    $arqpro->inserir2();
+                    move_uploaded_file($_FILES['arquivos']['tmp_name'][$i], '../arquivoProjeto/' . $nomes[$i]);
+                }
+            }
             header("location:projetos.php?analista=$analista");
         } catch(Exception $e) {
             echo "<h1>Erro ao editar as informações.</h1><br> Erro:".$e->getMessage();
         }
     } else if($acao == "excluir") {
         try{
-            $pro = new Projeto($id, "", "", "", "", "", "", "", "");
+            $pro = new Projeto($id, "", "", "", "", "", "", "");
             $pro->excluir();
             header("location:projetos.php?analista=$analista");
         } catch(Exception $e) {
             echo "<h1>Erro ao editar as informações.</h1><br> Erro:".$e->getMessage();
         }
     }
-
-
 ?>
 
 <html>

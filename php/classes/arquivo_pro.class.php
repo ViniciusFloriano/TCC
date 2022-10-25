@@ -32,10 +32,15 @@
             return parent::executaComando($sql,$parametros);
         }
 
-        public function editar(){
-            $sql = 'UPDATE tcc.arquivo_pro 
-            SET arquivos = :arquivos
-            WHERE idpro = :idpro';
+        public function excluir(){
+            $sql = 'DELETE FROM tcc.arquivo_pro WHERE idpro = :idpro;';
+            $parametros = array(":idpro"=>$this->getidpro());
+            return parent::executaComando($sql,$parametros);
+        }
+
+        public function inserir2(){
+            $sql = 'INSERT INTO tcc.arquivo_pro (arquivos, idpro) 
+            VALUES (:arquivos, :idpro)';
             $parametros = array(":arquivos"=>$this->getarquivos(),
                                 ":idpro"=>$this->getidpro());
             return parent::executaComando($sql,$parametros);
@@ -79,7 +84,7 @@
         }
 
         public static function consultarData($id){
-            $sql = "SELECT * FROM arquivo_pro WHERE idpro = :idpro";
+            $sql = "SELECT arquivos FROM arquivo_pro WHERE idpro = :idpro";
             $params = array(':idpro'=>$id);
             return parent::buscar($sql, $params);
         }

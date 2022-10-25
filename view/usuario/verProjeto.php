@@ -7,8 +7,12 @@
     $arquivo = Arquivo_pro::consultarData($id);
     $table = "projeto";
 
-    $zip = new ZipArchive();
-    $zip->addFile($arquivo);
+    $nomezip = "../arquivoProjeto/arquivos-do-projeto-".$dados['nome'].".zip";
+    $zip = new ZipArchive;
+    $zip->open($nomezip, ZipArchive::CREATE);
+    for($i = 0; $i < count($arquivo); $i++){
+        $zip->addFile("../arquivoProjeto/".$arquivo[$i][0], $arquivo[$i][0]);
+    }
     $zip->close();
 ?>
 <html>
@@ -53,7 +57,7 @@
             <div class="col-auto">
                 <div class="input-group">
                     <label class="input-group-text border border-dark rounded-start" for="documento">Baixar arquivo do projeto</label>
-                    <a href='../arquivoProjeto/<?php echo $zip;?>' download style="width: 50.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
+                    <a href='<?php echo $nomezip?>' download style="width: 50.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
                 </div>
             </div><br>
             <div class="col-auto">
