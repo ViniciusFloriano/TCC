@@ -4,13 +4,16 @@
     $id = $_GET['id'];
     $analista = $_GET['analista'];
     $dados = Projeto::consultarData($id)[0];
+    $arquivo = Arquivo_pro::consultarData($id);
     $table = "projeto";
-    
-    // $pdo = Database::iniciaConexao();
-    // $consulta = $pdo->query("SELECT usuario.nome FROM usuario, projeto WHERE ".$id." = projeto.id AND usuario.tipo = 'programador' AND usuario.id = projeto.idusu;");
-    // while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
-    //     $nome = $linha['nome'];
-    // }
+    error_reporting(0);
+    $nomezip = "../arquivoProjeto/arquivos-do-projeto-".$dados['nome'].".zip";
+    $zip = new ZipArchive;
+    $zip->open($nomezip, ZipArchive::CREATE);
+    for($i = 0; $i < count($arquivo); $i++){
+        $zip->addFile("../arquivoProjeto/".$arquivo[$i][0], $arquivo[$i][0]);
+    }
+    $zip->close();
 ?>
 <html>
 <head>
@@ -38,13 +41,13 @@
             <div class="col-auto">
                 <div class="input-group">
                     <label class="input-group-text border border-dark rounded-start" for="prazoinicio"> Prazo de Início </label>
-                    <input type="date" id="prazoinicio" name="prazoinicio" style="width: 68.5%;" required value="<?php if (isset($id)) echo $dados['prazoinicio'];?>" class="form-control-sm border border-dark rounded-end">
+                    <input type="date" id="prazoinicio" name="prazoinicio" style="width: 68.5%; background-color:#fff;" required value="<?php if (isset($id)) echo $dados['prazoinicio'];?>" class="form-control-sm border border-dark rounded-end" disabled>
                 </div>
             </div><br>
             <div class="col-auto">   
                 <div class="input-group">
                     <label class="input-group-text border border-dark rounded-start" for="prazofim"> Prazo de Fim </label>
-                    <input type="date" id="prazofim" name="prazofim" style="width: 71.6%;" required value="<?php if (isset($id)) echo $dados['prazofim'];?>" class="form-control-sm border border-dark rounded-end">
+                    <input type="date" id="prazofim" name="prazofim" style="width: 71.6%; background-color:#fff;" required value="<?php if (isset($id)) echo $dados['prazofim'];?>" class="form-control-sm border border-dark rounded-end" disabled>
                 </div>
             </div><br>
             <div class="mb-3">
@@ -54,13 +57,13 @@
             <div class="col-auto">
                 <div class="input-group">
                 <label class="input-group-text border border-dark rounded-start" for="documento">Baixar arquivo do projeto</label>
-                    <a href='../../<?php echo $dados['documento'];?>' download style="width: 50.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
+                    <a href='<?php echo $nomezip?>' download style="width: 50.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
                 </div>
             </div><br>
             <div class="col-auto">
                 <div class="input-group">
                     <label class="input-group-text border border-dark rounded-start" for="programador">Programador(es)</label>
-                    <select name="idusu" id="idusu" style="width: 64.9%; text-align: center;" class="form-select-sm border border-dark rounded-end" multiple aria-label="Floating label select example">
+                    <select name="idusu" id="idusu" style="width: 64.9%; text-align: center;" class="form-select-sm border border-dark rounded-end" multiple aria-label="Floating label select example" disabled>
                         <?php
                             $pdo = Database::iniciaConexao();
                             $consulta = $pdo->query("SELECT usuario.nome FROM usuario_projeto LEFT JOIN usuario ON (usuario_projeto.idusu = usuario.id) AND $id = usuario_projeto.idpro AND usuario.status = 'ativado';");

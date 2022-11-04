@@ -9,7 +9,6 @@
     }
 
     $analista = isset($_GET["analista"]) ? $_GET["analista"] : 0;
-    $buscar = isset($_POST["buscar"]) ? $_POST["buscar"] : 0;
     $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : "";
     $table = "projeto";
 
@@ -29,16 +28,12 @@
     </header>
     <section>
         <form method="post" style="padding-left: 2em;">
-            <h1 style="color:white ;">Pesquisar:</h1><br>
-            <div style="color:white;" class="form-check">
-                <input type="radio" name="buscar" value="1" <?php if ($buscar == "1") echo "checked" ?> class="form-check-input">
-                <label class="form-check-label" for="flexRadioDefault1">Nome</label><br><br>
-            </div>
+            <h1 style="color:white ;">Pesquisar projetos por nome:</h1><br>
             <div class="col-auto">
                 <div class="input-group">    
-                    <div class="input-group-text border border-dark rounded-start">Pesquisar :</div>
+                    <div class="input-group-text border border-dark rounded-start">Nome:</div>
                     <input type="text" name="procurar" id="procurar" size="25" value="<?php echo $procurar;?>" class="form-control-sm border border-dark rounded-end">
-                    <button name="acao" id="acao" type="submit" style="background-color: #a13854;border:none;color:#fff;" class="btn btn-dark">Enviar</button>
+                    <button name="acao" id="acao" type="submit" style="background-color: #a13854;border:none;color:#fff;margin-left: 0.5em;" class="btn btn-dark rounded">Pesquisar</button>
                 </div>
             </div>
             <br>
@@ -50,19 +45,21 @@
                         <th scope="col">Nome do projeto</th>
                         <th scope="col">Detalhes</th>
                         <th scope="col">Andamento</th>
+                        <th scope="col">Requisitos</th>
                         <th scope="col">Alterar</th>
                         <th scope="col">Excluir</th>
                     </tr>
                 </thead>
                 <tbody>
                 <?php
-                    $lista = Projeto::listar2($buscar, $procurar, $analista);
+                    $lista = Projeto::listar2(1, $procurar, $analista);
                     foreach ($lista as $linha) {
                 ?>
                     <tr>
                         <th scope="row"><?php echo $linha['nome'];?></th>
                         <td scope="row"><a href="verProjeto.php?id=<?php echo $linha['id'];?>&analista=<?php echo $analista;?>"><img src="../../img/info.svg" alt=""></a></td>
                         <td scope="row"><a href="estadoProj.php?analista=<?php echo $analista?>"><img src="../../img/clock.svg" alt=""></a></td>
+                        <td scope="row"><a href="requisitos.php?idpro=<?php echo $linha['id']?>"><img src="../../img/requisito.svg" alt=""></a></td>
                         <td scope="row"><a href="cadProjeto.php?id=<?php echo $linha['id'];?>&analista=<?php echo $analista;?>"><img src="../../img/edit.svg" alt=""></a></td>
                         <td scope="row"><a onclick="return confirm('Deseja mesmo excluir?')" href="cadProjeto.php?id=<?php echo $linha['id'];?>&analista=<?php echo $analista;?>&acao=excluir"><img src="../../img/trash-2.svg" alt=""></a></td>
                     </tr>

@@ -6,19 +6,19 @@
     $idpro = $_GET["idpro"];
 
     if($status == "backlog") {
-        $req = new Requisito($id, "", "", "", "", "", "backlog");
+        $req = new Requisito($id, "", "", "", "", "backlog");
         $req->status();
         header("Location:../../view/usuario/requisitoProg.php?idpro=".$idpro."");
     } elseif($status == "pending") {
-        $req = new Requisito($id, "", "", "", "", "", "pending");
+        $req = new Requisito($id, "", "", "", "", "pending");
         echo $req->status();
         header("Location:../../view/usuario/requisitoProg.php?idpro=".$idpro."");
     } elseif($status == "inprogress") {
-        $req = new Requisito($id, "", "", "", "", "", "inprogress");
+        $req = new Requisito($id, "", "", "", "", "inprogress");
         $req->status();
         header("Location:../../view/usuario/requisitoProg.php?idpro=".$idpro."");
     } elseif($status == "completed") {
-        $req = new Requisito($id, "", "", "", "", "", "completed");
+        $req = new Requisito($id, "", "", "", "", "completed");
         $req->status();
         header("Location:../../view/usuario/requisitoProg.php?idpro=".$idpro."");
     }

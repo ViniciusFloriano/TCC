@@ -212,10 +212,20 @@
                 return parent::executaComando($sql,$parametros);
             }
 
-            public static function listar2($id){
-                $sql = "SELECT * FROM usuario WHERE id != :id";
-                $params = array(':id'=>$id);
-                return parent::buscar($sql, $params);
+            public static function listar2($buscar = 0, $procurar = "", $id = ""){
+                $sql = "SELECT * FROM usuario WHERE id != $id";
+                if ($buscar > 0)
+                    switch($buscar){
+                        case(1): $sql .= " AND nome like :procurar"; $procurar = "%".$procurar."%"; break;
+                    }
+                if ($buscar > 0) {
+                    $parametros = array(':procurar'=>$procurar);
+                    $usu = array(':id'=>$id);
+                }else {
+                    $parametros = array();
+                    $usu = array(':id'=>$id);
+                }
+                return parent::buscar2($sql, $parametros, $usu);
             }
         }
 ?>

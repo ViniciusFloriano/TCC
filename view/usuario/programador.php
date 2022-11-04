@@ -28,7 +28,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<hr>
-                        Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=pending' class='btn'>Pendente</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=completed' class='btn'>Completo</a>|<a style='color: black;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>info</a>|
+                        Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=pending' class='btn'>Pendente</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=completed' class='btn'>Completo</a>|<a style='color: black; text-decoration: none;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>Detalhes</a>|
                         </span>
                         </scroll-page>"; 
                     }
@@ -47,7 +47,7 @@
                     Nome: ".$linha['nome']."<br>
                     Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                     Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<hr>
-                    Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=backlog' class='btn'>Projetos</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=completed' class='btn'>Completo</a>|<a style='color: black;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>info</a>|
+                    Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=backlog' class='btn'>Projetos</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=completed' class='btn'>Completo</a>|<a style='color: black; text-decoration: none;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>Detalhes</a>|
                     </span>
                     </scroll-page>";
                 }
@@ -66,7 +66,7 @@
                     Nome: ".$linha['nome']."<br>
                     Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                     Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<hr>
-                    Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=backlog' class='btn'>Projetos</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=pending' class='btn'>Pendente</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=completed' class='btn'>Completo</a>|<a style='color: black;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>info</a>|
+                    Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=backlog' class='btn'>Projetos</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=pending' class='btn'>Pendente</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=completed' class='btn'>Completo</a>|<a style='color: black; text-decoration: none;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>Detalhes</a>|
                     </span>
                     </scroll-page>";
                 }
@@ -84,7 +84,7 @@
                     Nome: ".$linha['nome']."<br>
                     Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                     Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<hr>
-                    Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=backlog' class='btn'>Projetos</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=pending' class='btn'>Pendente</a>|<a style='color: black;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>info</a>|
+                    Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=backlog' class='btn'>Projetos</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=pending' class='btn'>Pendente</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleProjeto.php?id=".$linha['id']."&idusu=".$idusu."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black; text-decoration: none;' href='verProjetoProg.php?id=".$linha['id']."&analista=".$linha['analista']."' class='btn'>Detalhes</a>|
                     </span>
                     </scroll-page>";
                 }

@@ -28,7 +28,7 @@
                         <span class='board'>
                         Nome: ".$linha['nome']."<br>
                         Prazo: ".date('d/m/Y',strtotime($linha['prazo']))."<hr>
-                        Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=pending' class='btn'>Pendente</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=completed' class='btn'>Completo</a>|<a style='color: black;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>info</a>|
+                        Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=pending' class='btn'>Pendente</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=completed' class='btn'>Completo</a>|<a style='color: black; text-decoration: none;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>Detalhes</a>|
                         </span>
                         </scroll-page>";
                     }
@@ -46,7 +46,7 @@
                         <span class='board'>
                         Nome: ".$linha['nome']."<br>
                         Prazo: ".date('d/m/Y',strtotime($linha['prazo']))."<hr>
-                        Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=backlog' class='btn'>Analise</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=completed' class='btn'>Completo</a>|<a style='color: black;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>info</a>|
+                        Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=backlog' class='btn'>Analise</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=completed' class='btn'>Completo</a>|<a style='color: black; text-decoration: none;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>Detalhes</a>|
                         </span>
                         </scroll-page>";
                     } 
@@ -64,7 +64,7 @@
                         <span class='board'>
                         Nome: ".$linha['nome']."<br>
                         Prazo: ".date('d/m/Y',strtotime($linha['prazo']))."<hr>
-                        Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=backlog' class='btn'>Analise</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=pending' class='btn'>Pendente</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=completed' class='btn'>Completo</a>|<a style='color: black;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>info</a>|
+                        Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=backlog' class='btn'>Analise</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=pending' class='btn'>Pendente</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=completed' class='btn'>Completo</a>|<a style='color: black; text-decoration: none;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>Detalhes</a>|
                         </span>
                         </scroll-page>";
                     } 
@@ -82,7 +82,7 @@
                         <span class='board'>
                         Nome: ".$linha['nome']."<br>
                         Prazo: ".date('d/m/Y',strtotime($linha['prazo']))."<hr>
-                        Mudança de status:<br>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=backlog' class='btn'>Analise</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=pending' class='btn'>Pendente</a>|<a style='color: black;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>info</a>|
+                        Mudança de status:<br>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=backlog' class='btn'>Analise</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=pending' class='btn'>Pendente</a>|<a style='color: black; text-decoration: none;' href='../../php/controle/controleRequisito.php?id=".$linha['id']."&idpro=".$idpro."&status=inprogress' class='btn'>Fazendo</a>|<a style='color: black; text-decoration: none;' href='verRequisitoProg.php?id=".$linha['id']."&idpro=".$idpro."' class='btn'>Detalhes</a>|
                         </span>
                         </scroll-page>";
                     }

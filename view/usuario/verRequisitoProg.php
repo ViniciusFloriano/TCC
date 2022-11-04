@@ -4,7 +4,16 @@
     $id = $_GET["id"];
     $idpro = $_GET["idpro"];
     $dados = Requisito::consultarData($idpro)[0];
+    $arquivo = Arquivo_req::consultarData($id);
     $table = "requisito";
+    error_reporting(0);
+    $nomezip = "../arquivoRequisito/arquivos-do-requisito-".$dados['nome'].".zip";
+    $zip = new ZipArchive;
+    $zip->open($nomezip, ZipArchive::CREATE);
+    for($i = 0; $i < count($arquivo); $i++){
+        $zip->addFile("../arquivoRequisito/".$arquivo[$i][0], $arquivo[$i][0]);
+    }
+    $zip->close();
 ?>
 <html>
 <head>
@@ -42,13 +51,13 @@
             <div class="col-auto">
                 <div class="input-group">
                     <label class="input-group-text border border-dark rounded-start" for="documento">Baixar arquivo do requisito</label>
-                    <a href='../../<?php echo $dados['documento'];?>' download style="width: 47.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
+                    <a href='<?php echo $nomezip?>' download style="width: 47.5%;background-color:#c93854;color:#ffffff;" class="border border-dark btn btn-danger rounded-end" role="button">Download</a>
                 </div>
             </div><br>
             <div class="col-auto">
                 <div class="input-group">
                     <label class="input-group-text border border-dark rounded-start" for="programador">Programador(es)</label>
-                    <select name="idusu" id="idusu" style="width: 64.9%; text-align: center;" class="form-select-sm border border-dark rounded-end" multiple aria-label="Floating label select example">
+                    <select name="idusu" id="idusu" style="width: 64.9%; text-align: center;" class="form-select-sm border border-dark rounded-end" multiple aria-label="Floating label select example" disabled>
                         <?php
                             $pdo = Database::iniciaConexao();
                             $consulta = $pdo->query("SELECT usuario.nome FROM usuario_requisito LEFT JOIN usuario ON (usuario_requisito.idusu = usuario.id) AND $id = usuario_requisito.idreq AND usuario.status = 'ativado';");

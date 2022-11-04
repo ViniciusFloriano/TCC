@@ -32,7 +32,7 @@
                     $usu->editar();
                 }
                 header("Location:../../view/usuario/perfil.php?msg=Usuário alterado com sucesso!");
-            } else if($acao = "excluir") {
+            } else if($acao == "excluir") {
                 $usu = new Usuario($_SESSION['id'], "", "", "", "", "", "", "", "desativado");
                 $usu->excluir();
                 header("Location:../../view/usuario/login.php");

@@ -145,12 +145,7 @@
             $sql = "SELECT * FROM requisito WHERE idpro = $idpro";
             if ($buscar > 0)
                 switch($buscar){
-                    case(1): $sql .= " WHERE id like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(2): $sql .= " WHERE nome like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(3): $sql .= " WHERE prazo like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(4): $sql .= " WHERE descricao like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(5): $sql .= " WHERE idpro like :procurar"; $procurar = "%".$procurar."%"; break;
-                    case(6): $sql .= " WHERE status like :procurar"; $procurar = "%".$procurar."%"; break;
+                    case(1): $sql .= " AND nome like :procurar"; $procurar = "%".$procurar."%"; break;
                 }
             if ($buscar > 0){
                 $parametros = array(':procurar'=>$procurar);

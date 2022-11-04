@@ -9,7 +9,6 @@
     }
 
     $analista = isset($_GET["analista"]) ? $_GET["analista"] : 0;
-    $buscar = isset($_POST["buscar"]) ? $_POST["buscar"] : 0;
     $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : "";
     $table = "projeto";
 
@@ -29,19 +28,15 @@
     </header>
     <section>
         <form method="post" style="padding-left: 2em;">
-            <h1 style="color:white ;">Pesquisar Por:</h1><br>
-            <div style="color:white;" class="form-check">
-                <input type="radio" name="buscar" value="1" <?php if ($buscar == "1") echo "checked" ?> class="form-check-input">
-                <label class="form-check-label" for="flexRadioDefault1">Nome</label><br><br>
-            </div>
+            <h1 style="color:white ;">Pesquisar usuarios por nome:</h1><br>
             <div class="col-auto">
                 <div class="input-group">    
-                    <div class="input-group-text border border-dark rounded-start">Procurar:</div>
+                    <div class="input-group-text border border-dark rounded-start">Nome:</div>
                     <input type="text" name="procurar" id="procurar" size="25" value="<?php echo $procurar;?>" class="form-control-sm border border-dark rounded-end">
-                </div><br>
+                    <button name="acao" id="acao" type="submit" style="background-color: #a13854;border:none;color:#fff;" class="btn btn-dark">Pesquisar</button>
+                </div>
             </div>
-            <button name="acao" id="acao" type="submit" style="background-color: #a13854;border:none;color:#fff;" class="btn btn-dark">Procurar</button>
-            <br><br>
+            <br>
         </form>
         <div style="padding-left: 2em;padding-right: 2em;">
             <table border='1' class="table table-light table-striped">
@@ -54,7 +49,7 @@
                 </thead>
                 <tbody>
                 <?php
-                    $lista = Usuario::listar2($_SESSION['id']);
+                    $lista = Usuario::listar2(1, $procurar, $_SESSION['id']);
                     foreach ($lista as $linha) {
                 ?>
                     <tr>

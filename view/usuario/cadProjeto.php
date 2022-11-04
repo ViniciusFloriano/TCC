@@ -17,7 +17,7 @@
     $analista = isset($_GET["analista"]) ? $_GET["analista"] : 0;
     $status = "backlog";
     $table = "projeto";
-    $arquivos_permitidos = ['jpg', 'png', 'jpeg', 'docx', 'pdf', 'txt', ''];
+    $arquivos_permitidos = ['jpg', 'png', 'jpeg', 'docx', 'pdf', 'txt', 'doc', 'bmp', 'xlsx', 'ppt', 'zip', 'mp3', 'mp4', 'psd', 'js', 'php', 'html', 'css', 'tiff', 'AI', 'dll', 'AVI', 'WAV', 'rar', 'gif', ''];
     $nomes = $_FILES['arquivos']['name'];
 
     if(isset($_POST['acao'])) {

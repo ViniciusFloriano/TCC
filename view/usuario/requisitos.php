@@ -9,7 +9,6 @@
     }
 
     $idpro = isset($_GET["idpro"]) ? $_GET["idpro"] : "";
-    $buscar = isset($_POST["buscar"]) ? $_POST["buscar"] : 0;
     $procurar = isset($_POST["procurar"]) ? $_POST["procurar"] : "";
     $table = "requisito";
 ?>
@@ -24,26 +23,20 @@
 </head>
 <body>
     <header>
-        <?php include_once "menu.php"; ?>
+        <?php include_once "menuReq.php"; ?>
     </header><br>
     <section>
         <form method="post" style="padding-left: 2em;">
-            <h1 style="color:white;">Pesquisar Por:</h1><br>
-            <div style="color:white;" class="form-check">
-                <input type="radio" name="buscar" value="1" <?php if ($buscar == "1") echo "checked" ?> class="form-check-input">
-                <label class="form-check-label" for="flexRadioDefault1">Nome</label><br><br>
-            </div>
+            <h1 style="color:white;">Pesquisar requisito por nome:</h1><br>
             <div class="col-auto">
                 <div class="input-group">    
-                    <div class="input-group-text border border-dark rounded-start">Procurar:</div>
+                    <div class="input-group-text border border-dark rounded-start">Nome:</div>
                     <input type="text" name="procurar" id="procurar" size="25" value="<?php echo $procurar;?>" class="form-control-sm border border-dark rounded-end">
-                    <button name="acao" id="acao" type="submit" style="background-color: #a13854;border:none;color:#fff;" class="btn btn-dark">Enviar</button>
+                    <button name="acao" id="acao" type="submit" style="background-color: #a13854;border:none;color:#fff;margin-left: 0.5em;" class="btn btn-dark rounded">Pesquisar</button>
                 </div>
             </div>
-        </form>
-        <form action="cadRequisito.php?idpro=<?php echo $idpro?>" method="post" style="float: right;padding-right: 2em;">    
-            <button style="width: 100%;height: 40px;background-color: #a13854;border:none;color:#fff;margin: 10px 0;" class="btn" type="submit">Cadastrar Requisito</button>
-        </form>
+        </form><br>
+
         <div style="padding-left: 2em;padding-right: 2em;">
             <table border='1' class="table table-light table-striped">
                 <thead>
@@ -57,7 +50,7 @@
                 </thead>
                 <tbody>
                 <?php
-                    $lista = Requisito::listar2($buscar, $procurar, $idpro);
+                    $lista = Requisito::listar2(1, $procurar, $idpro);
                     foreach ($lista as $linha) {
                 ?>
                     <tr>

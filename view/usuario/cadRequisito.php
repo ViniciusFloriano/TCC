@@ -15,7 +15,7 @@
     $idpro = isset($_GET["idpro"]) ? $_GET["idpro"] : 0;
     $status = "backlog";
     $table = "requisito";
-    $arquivos_permitidos = ['jpg', 'png', 'jpeg', 'docx', 'pdf', ''];
+    $arquivos_permitidos = ['jpg', 'png', 'jpeg', 'docx', 'pdf', 'txt', 'doc', 'bmp', 'xlsx', 'ppt', 'zip', 'mp3', 'mp4', 'psd', 'js', 'php', 'html', 'css', 'tiff', 'AI', 'dll', 'AVI', 'WAV', 'rar', 'gif', ''];
     $nomes = $_FILES['arquivos']['name'];
 
     if(isset($_POST['acao'])) {
@@ -114,7 +114,7 @@
     <header>
         <?php include_once "menu.php"; ?>
     </header>
-    <a role='button' href=' c../../view/usuario/requisitos.php?idpro=<?php echo $idpro?>'><img src='../../img/arrow.svg' style='width: 2.5%;'></a>
+    <a role='button' href='../../view/usuario/requisitos.php?idpro=<?php echo $idpro?>'><img src='../../img/arrow.svg' style='width: 2.5%;'></a>
     <section id="requisito">
         <form action="<?php if(isset($_GET['id'])) { echo "cadRequisito.php?id=$id&idpro=$idpro&acao=editar";} else {echo "cadRequisito.php?acao=insert&idpro=$idpro&status=$status";}?>" method="POST" style="color: #fff;" class="card-projeto" enctype="multipart/form-data">
             <div><h2>Requisito</h2></div><br>
@@ -142,8 +142,8 @@
             </div><br>
             <div class="col-auto">
                 <div class="input-group">
-                    <label class="input-group-text border border-dark rounded-start" for="programador">Programador</label>
-                    <select name="idusu[]" id="idusu[]" style="width: 71.3%; text-align: center;" class="form-select-sm border border-dark rounded-end" multiple aria-label="Floating label select example">
+                    <label class="input-group-text border border-dark rounded-start" for="programador">Programador(es)</label>
+                    <select name="idusu[]" id="idusu[]" style="width: 64.9%; text-align: center;" class="form-select-sm border border-dark rounded-end" multiple aria-label="Floating label select example">
                         <?php
                             $pdo = Database::iniciaConexao();
                             $consulta = $pdo->query("SELECT * FROM usuario WHERE tipo = 'programador';");

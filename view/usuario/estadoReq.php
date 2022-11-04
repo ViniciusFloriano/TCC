@@ -32,8 +32,8 @@
                         <span class='board'>
                         Nome: ".$linha['nome']."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                        Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                        echo " |
+                        Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                        echo "
                         </span>
                         </scroll-page>";
                     }
@@ -53,8 +53,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($mes > date('m',strtotime($linha['prazo']))){
@@ -62,8 +62,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia > date('d',strtotime($linha['prazo'])) && $mes < date('m',strtotime($linha['prazo']))){
@@ -71,7 +71,7 @@
                             <span class='board' style='background-color:green;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
                             echo " |
                             </span>
                             </scroll-page>";
@@ -80,8 +80,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia <= date('d',strtotime($linha['prazo']))){
@@ -89,8 +89,8 @@
                             <span class='board' style='background-color:green;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         }
@@ -111,8 +111,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($mes > date('m',strtotime($linha['prazo']))){
@@ -120,8 +120,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia > date('d',strtotime($linha['prazo'])) && $mes < date('m',strtotime($linha['prazo']))){
@@ -129,8 +129,8 @@
                             <span class='board' style='background-color:green;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia > date('d',strtotime($linha['prazo']))  && $mes >= date('m',strtotime($linha['prazo']))){
@@ -138,8 +138,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia <= date('d',strtotime($linha['prazo']))){
@@ -147,8 +147,8 @@
                             <span class='board' style='background-color:green;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         }
@@ -169,8 +169,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($mes > date('m',strtotime($linha['prazo']))){
@@ -178,8 +178,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia > date('d',strtotime($linha['prazo'])) && $mes < date('m',strtotime($linha['prazo']))){
@@ -187,8 +187,8 @@
                             <span class='board' style='background-color:green;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia > date('d',strtotime($linha['prazo']))  && $mes >= date('m',strtotime($linha['prazo']))){
@@ -196,8 +196,8 @@
                             <span class='board' style='background-color:red;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         } elseif($dia <= date('d',strtotime($linha['prazo']))){
@@ -205,8 +205,8 @@
                             <span class='board' style='background-color:green;'>
                             Nome: ".$linha['nome']."<br>
                             Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazo']))."<br>
-                            Programador: ";foreach(nome($linha['id']) as $key => $value){echo " | ".$value;}
-                            echo " |
+                            Programador: | ";foreach(nome($linha['id']) as $key => $value){echo $value." | ";}
+                            echo "
                             </span>
                             </scroll-page>";
                         }

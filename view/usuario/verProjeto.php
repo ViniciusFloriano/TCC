@@ -6,7 +6,7 @@
     $dados = Projeto::consultarData($id)[0];
     $arquivo = Arquivo_pro::consultarData($id);
     $table = "projeto";
-
+    error_reporting(0);
     $nomezip = "../arquivoProjeto/arquivos-do-projeto-".$dados['nome'].".zip";
     $zip = new ZipArchive;
     $zip->open($nomezip, ZipArchive::CREATE);
@@ -30,7 +30,7 @@
     </header>
     <a role='button' href='../../view/usuario/projetos.php?analista=<?php echo $analista?>'><img src='../../img/arrow.svg' style='width: 2.5%;'></a>
     <section id="projeto">
-        <form action="requisitos.php?idpro=<?php echo $dados['id']?>" method="POST" style="color: #fff;" class="card-projeto">
+        <form method="POST" style="color: #fff;" class="card-projeto">
             <div><h2>Projeto</h2></div><br>
             <div class="col-auto">
                 <div class="input-group">
@@ -79,9 +79,6 @@
                         <?php } ?>
                     </select>
                 </div>
-            </div><br>
-            <div>
-                <button style="width: 100%;height: 40px;background-color: #a13854;border:none;color:#fff;margin: 10px 0;" type="submit">Requisitos</button>
             </div>
         </form> 
     </section>

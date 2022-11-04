@@ -33,8 +33,8 @@
                     Nome: ".$linha['nome']."<br>
                     Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                     Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                    Programador(es): ";foreach(prog($linha['id']) as $key => $value){echo " | ".$value;}
-                    echo " |
+                    Programador(es): | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                    echo "
                     </span>
                     </scroll-page>";
                 }
@@ -55,7 +55,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -65,7 +65,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -75,7 +75,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -85,7 +85,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -95,7 +95,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -118,7 +118,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -128,7 +128,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -138,7 +138,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -148,7 +148,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -158,7 +158,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -180,7 +180,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -190,7 +190,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -200,7 +200,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -210,7 +210,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
@@ -220,7 +220,7 @@
                         Nome: ".$linha['nome']."<br>
                         Prazo de Inicio: ".date('d/m/Y',strtotime($linha['prazoinicio']))."<br>
                         Prazo de Fim: ".date('d/m/Y',strtotime($linha['prazofim']))."<br>
-                        Programador: ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
+                        Programador: | ";foreach(prog($linha['id']) as $key => $value){echo $value." | ";}
                         echo "
                         </span>
                         </scroll-page>";
